@@ -1,4 +1,4 @@
-![Test Image 1](https://e.top4top.io/p_1719vwiam1.png)
+![Test Image 1](https://raw.githubusercontent.com/Ab-0/List-Banned-Members/master/Screenshot.png)
 
 # Is it open source?
 Yes, the script is open source, but I will not allow you to delete my rights, and if you want to modify it and want to add your name, you can add it, provided that the rights are not deleted!
