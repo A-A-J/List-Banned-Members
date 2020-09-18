@@ -237,7 +237,7 @@
 
         <div class="d-table-cell align-top content">
 
-            <h2>Script Ban Members</h2>
+            <h2>List Banned Members</h2>
 
             <?php
             if ( $getPage == 'step' ){

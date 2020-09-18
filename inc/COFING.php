@@ -1,7 +1,7 @@
 <?php
 /*
 [0] - The work was completely done with effort that lasted several months, in addition to my illness due to staying up late and constantly sitting in front of the screen and on the (annoying) rotating chair, and I really hope you appreciate this work, please save my coding rights, and I hope this beautiful version will not leak. All friendliness, Basho.
-[1] - Data: 2020-04-30
+[1] - Data: 2020-09-18
 */
 
 //Data Type phpmyadmin Sate
