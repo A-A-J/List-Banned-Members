@@ -8,7 +8,7 @@ Yes, the script is open source, but I will not allow you to delete my rights, an
 * MySQLi
 * Encodes base64
 
-# Add-ons used:
+# Add-ons:
 * bootstrap
 * font-awesome
 * JavaScript -> Ajax
