@@ -1,1 +1,3 @@
-*.JavaScript linguist-language=PHP
+*.csharp linguist-detectable=true  
+*.java linguist-detectable=false  
+*.js linguist-detectable=true  
