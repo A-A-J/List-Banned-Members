@@ -1,0 +1,80 @@
+<aside class="menu-center-data text-right mr-3 ml-3 mt-3">
+
+    <div class="main-card-data">
+
+        <form class="p-0" action='index.php?page=CommandData' method='POST'>
+            <div class="row">
+                <div class="col-lg-6 pt-3 pb-3 pl-5 pr-5" style="border-left: 1px solid #ddd;">
+                    <div class='A-panel'>
+
+                        <div class='A-form-group'>
+
+                            <?php if( !empty($msg_dump_sql) ){getMsg( 'success', Lang['Query_succeeded'] );} ?>
+
+                            <?php if( !empty($msg_error_data) ){getMsg( 'error', $e->getMessage() );} ?>
+                            
+                            <label class="m-0"><?php echo Lang['Execute_command_data'];?></label>
+
+                            <small id="emailHelp" class="form-text text-muted m-0 mb-3"><?php echo Lang['Command_execute_msg'];?> </small>
+
+                            <textarea id="dk-text" class="h-75 text-left" name='CommandData' placeholder='<?php echo Lang['Msg_input_execute'];?>'></textarea>
+                        
+                        </div>
+                    </div>
+
+                    <input type="submit" name="CommandDataa" class="btn btn-updata mt-3" value="أخذ نسخة إحتياطية">
+                </div>
+
+                <div class="col-lg-6 pt-3 pb-3 pl-5 pr-5">
+                    <div class='A-panel'>
+
+                        <div class='A-form-group'>
+
+                            <?php if(!empty($msg_Backup)){echo $msg_Backup;} ?>
+        
+                            <label class="m-0">هل ترغب بأخذ نسخة إحتياطية؟</label>
+        
+                            <small id="emailHelp" class="form-text text-muted m-0 mb-3">ستتمكن من حفظ نسخة إحتياطية من قواعد البيانات (SQL) في رئيسية موقعك.</small>
+
+                            <input type="submit" name="dump" class="btn btn-updata" value="أخذ نسخة إحتياطية">
+                        
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>   
+
+    </div>
+
+</aside>
+
+<script>
+    
+    window.onload = function() {
+        var mime = 'text/x-mariadb';
+        // get mime type
+        if (window.location.href.indexOf('mime=') > -1) {
+            mime = window.location.href.substr(window.location.href.indexOf('mime=') + 5);
+        }
+        window.editor = CodeMirror.fromTextArea(document.getElementById('dk-text'), {
+            mode: mime,
+            theme: 'monokai',
+            indentWithTabs: true,
+            smartIndent: true,
+            lineNumbers: true,
+            matchBrackets: true,
+            autofocus: true,
+            extraKeys: {
+                "Ctrl-Space": "autocomplete"
+            },
+            hintOptions: {
+                tables: {
+                    users: ["name", "score", "birthDate"],
+                    countries: ["name", "population", "size"]
+                }
+            },
+        });
+    };
+    
+</script>

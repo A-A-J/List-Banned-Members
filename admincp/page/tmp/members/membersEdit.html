@@ -1,0 +1,46 @@
+<div class="main-card-data">
+    <form action="?page=<?php echo $menupageurl; ?>&getpage=edit&id=<?php echo $id_Chek;?>" method="post">
+        <?php
+            if ( !empty( $formErrors ) ) {
+                echo '<div class="msg error">';
+                foreach ( $formErrors as $error ) {
+                    echo '- '. $error.'<br>';
+                }
+                echo '</div>';
+            }
+            if (!empty($msg_success_username)){
+                getMsg( 'success', 'تم تعديل العضوية <strong>'.$edit_username.'</strong> بنجاح' );
+            }
+        ?>
+        <div class="data-panel">
+            <label>أسم العضو:</label>
+            <input type="text" name="edit_username" placeholder="اكتب أسم العضو" maxlength="50" value="<?php echo $getPage['username'];?>" />
+        </div>
+
+        <div class="data-panel">
+            <label>كلمة المرور:</label>
+            <input type="hidden" name="old_password" value="<?php echo $getPage['password'];?>" />
+            <input type="password" name="new_password" placeholder="أكتب كلمة المرور" maxlength="255"/>
+        </div>
+
+        <div class="data-panel">
+            <label>البريد الإلكتروني:</label>
+            <input type="email" name="edit_email" placeholder="أكتب البريد الإلكتروني" maxlength="45" value="<?php echo $getPage['email'];?>" />
+        </div>
+
+        <div class="data-panel">
+            <label>المجموعة:</label>
+            <select name="edit_group">
+                <?php 
+                    if($getPage['group'] == 1){
+                        echo '<option value="1">الإدارة</option> <option value="2">المراقب</option>';
+                    }else{
+                        echo '<option value="2">المراقب</option> <option value="1">الإدارة</option>';
+                    }
+                ?>
+            </select>
+        </div>
+
+        <button type="submit" name="submit" class="B-wave btn btn-updata"><i class="fa fa-save"></i> حفظ التعديلات</button>
+    </form>
+</div>

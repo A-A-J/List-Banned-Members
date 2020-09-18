@@ -1,0 +1,30 @@
+<div class="main-card-data">
+    <form action="?page=<?php echo $menupageurl; ?>&getpage=edit&id=<?php echo $getPage['id'];?>" method="post">
+        <div class="data-panel">
+            <label><?php echo Lang['Name_of_banned_members'];?></label>
+            <input type="text" name="edit_name" maxlength="255" autocomplete="off" value="<?php echo $getPage['name'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Said_ban_member'];?></label>
+            <input type="text" name="edit_side" maxlength="255" autocomplete="new-password" value="<?php echo $getPage['side'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Reason_ban_member'];?></label>
+            <input type="text" name="edit_reason_ban" value="<?php echo $getPage['reason_ban'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Guide_ban_member'];?></label>
+            <input type="url" name="edit_evidence" value="<?php echo $getPage['evidence'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Date_ban'];?></label>
+            <input type="text" name="edit_date" value="<?php echo $getPage['data'];?>">
+        </div>
+
+        <button type="submit" name="submit" class="B-wave btn btn-updata"><i class="fa fa-save"></i> <?php echo Lang['Save'];?></button>
+    </form>
+</div>

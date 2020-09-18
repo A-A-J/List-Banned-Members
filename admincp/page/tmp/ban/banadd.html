@@ -1,0 +1,35 @@
+<div class="main-card-data">
+    <form action="?page=<?php echo $menupageurl; ?>&getpage=add" method="post">
+        <div class="data-panel">
+            <label><?php echo Lang['name_members'];?></label>
+            <small><?php echo Lang['msg_name_members'];?></small>
+            <input type="text" name="new_name" placeholder="<?php echo Lang['title_name_members'];?>" maxlength="255" autocomplete="off">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Said_ban_member'];?></label>
+            <small><?php echo Lang['msg_side_members'];?></small>
+            <input type="text" name="new_side" placeholder="<?php echo Lang['title_side_members'];?>" maxlength="255" autocomplete="new-password">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Reason_ban_member'];?></label>
+            <small><?php echo Lang['msg_reason_members']; ?></small>
+            <input type="text" name="new_reason_ban" placeholder="<?php echo Lang['title_reason_members'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Guide_ban_member'];?></label>
+            <small><?php echo Lang['msg_guide_members'];?></small>
+            <input type="url" name="new_evidence" placeholder="<?php echo Lang['title_guide_members'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Date_ban'];?></label>
+            <small><?php echo Lang['msg_date_members'] .' '. date("d-m-Y");?></small>
+            <input type="text" name="new_date">
+        </div>
+
+        <button type="submit" name="submit" class="B-wave btn btn-updata"><i class="fa fa-save"></i> <?php echo Lang['Save'];?></button>
+    </form>
+</div>

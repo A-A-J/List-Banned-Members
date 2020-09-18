@@ -1,0 +1,85 @@
+<a href="index.php?page=<?php echo $menupageurl;?>&getpage=add" class="B-wave btn btn-updata">إضافة عضو جديد</a>
+<div class="row mt-2 mb-3">
+    <div class="col-lg-12">
+
+        <!-- البحث عن العضوية -->
+        <form class="m-0 p-1 A-Serach-Normal" action="?page=<?php echo $menupageurl;?>&page_home=1" method="post">
+            <input type="text" class="d-block mb-1" style="font-size:12;" name="search_text" placeholder="أكتب أسم العضو هنا للبحث عنه.." maxlength="55" autocomplete="off">
+            <button type="submit" name="submit_searh" class="B-wave btn btn-updata float-right mb-1" value="submit_searh"><i class="fa fa-save"></i> بحث</button>
+        </form>
+        <!-- البحث عن العضوية -->
+                    
+        <div class="A-table">
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>أسم العضو</th>
+                            <th>الرتبة</th>
+                            <th>تاريخ التسجيل</th>
+                            <th>أخر تحديث</th>
+                            <th>الإعدادات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $pagination = new pagination();
+                        $pagination_page = ($pagination->get_pay_numper() > 1 ) ? ($pagination->get_pay_numper() * $pagination->get_page_limit() ) - $pagination->get_page_limit(): 0 ;
+                        $getTableSelectPagesHome = getAllTableLimit('*', $menupageurl, $pagination_page , $pagination->get_page_limit());
+                        foreach ( $getTableSelectPagesHome as $rows ) :
+                            $i = $rows['id'];
+                            if($rows['group'] == 1 ){
+                                $name_group = '<b style="background: red;">الإدارة</b>';
+                            }else{
+                                $name_group = '<b style="background: orange;">مراقب</b>';
+                            }
+
+                            if($rows['avatar'] == null ){
+                                $avatar = '<h2 class="noimg">'.$rows['username'][0].'</h2>';
+                            }else{
+                                $avatar = '<img class="avatar_table" src="../img/avatar/'.$rows['avatar'].' "/>';
+                            }
+
+                            echo '<tr>
+                               <td class="p-2">'. $i .'</td>
+                                <td class="text-right">'. $avatar . ' ' . $rows['username'] .'</td>
+                                <td>'. $name_group .'</td>
+                                <td>'. nicetime($rows['data']) .'</td>
+                                <td>'. nicetime($rows['updata_date']) .'</td>
+                                <td>
+                                    <a href="index.php?page='.$menupageurl.'&getpage=edit&id='.$rows['id'].'" class="fa fa-edit edit" data-toggle="tooltip" data-placement="right" title="تحرير الصفحة"></a> ';
+                                    $delete = ' <a href="#" class="fa fa-ban delete" data-toggle="modal" data-target=".bd-example-modal-sm-'.$rows['id'].' " title="حذف الصفحة"></a>';
+                                    getIfVa($rows['Basis'] == 1, ' ' , $delete);
+                                echo '</td>
+                            </tr>';
+                            echo '<div class="modal fade bd-example-modal-sm-'.$rows['id'].'" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content A-msgwindows">
+                                    <form action="?page='.$menupageurl.'&page_home=1" method="post">
+                                        <h5 class="modal-title" id="exampleModalLabel">هل أنت متأكد من حذف العضوية  '.$rows['username'].'؟</h5>
+                                        <button type="button" data-dismiss="modal" class="B-wave btn btn-updata">إلغاء الحذف</button>
+                                        <button type="submit" name="submit" class="B-wave btn btn-updata" value="'.$rows['id'].'" >حذف</button>
+                                    </form>
+                                </div>
+                              </div>
+                            </div> ';
+                        endforeach;
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- تعداد الصفحات -->
+        <?php 
+            $pagination->get_page_id('id', $menupageurl);
+            echo $pagination->paginationfull($menupageurl);
+        ?>
+        
+        <!-- تعداد الصفحات -->
+
+    </div>
+</div>
+<a href="index.php?page=<?php echo $menupageurl;?>&getpage=add" class="B-wave btn btn-updata">إضافة عضو جديد</a>

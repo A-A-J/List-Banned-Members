@@ -1,0 +1,45 @@
+<main>
+    <aside class="menu-top">
+        <div class="profile">
+            <?php getIfVa( $getUserNameAdmin['avatar'] == '' , '<h2 class="noimg">'.$getUserNameAdmin['username'][0].'</h2>', '<img src="../img/avatar/'.$getUserNameAdmin['avatar'].' "/>' ); ?>
+
+            <h6><?php echo $getUserNameAdmin['username'];?></h6>
+
+            <ul>
+                <li>
+                    <?php if ($hideMenu){ ?>
+                        <a href="#" class="transition dropdown-toggle" title="<?php echo Lang['Add'];?>..." id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus-circle"></i></a>
+                    <?php }else{?>
+                        <a href="?page=ban&getpage=add" class="transition" title="<?php echo Lang['ban_new_members'];?>"><i class="fa fa-plus-circle"></i></a>
+                    <?php } ?>
+                    <div class="dropdown-menu m-0 p-0" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="?page=members&getpage=add"><?php echo Lang['Add_members'];?></a>
+                        <a class="dropdown-item" href="?page=ban&getpage=add"><?php echo Lang['Ban_new_members'];?></a>
+                    </div>
+                </li>
+                
+                <li><a href="?page=logout" class="transition" title="<?php echo Lang['sign_out'];?>"><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+
+        </div>
+    </aside>
+    <aside class="menu-top-menu-top-profile">
+        <ul>
+            
+            <li><a href="index.php" class="B-wave A-Menu-active-home"><?php echo Lang['Home'];?></a></li>
+            <li><a target="_blank" href="../index.php" class="B-wave"><?php echo Lang['Home_site'];?></a></li>
+            
+            <?php if ($hideMenu){ ?>
+                <li><a href="?page=setting" class="B-wave A-Menu-active-setting"><?php echo Lang['Page_settings'];?></a></li>
+                <li><a href="?page=members" class="B-wave A-Menu-active-members"><?php echo Lang['List_Members'];?></a></li>
+            <?php  } ?>
+            
+            <li><a href="?page=ban" class="B-wave A-Menu-active-ban"><?php echo Lang['List_ban'];?></a></li>
+            
+            <?php if ($hideMenu){ ?>
+                <li><a href="?page=CommandData" class="B-wave A-Menu-active-CommandData"><?php echo Lang['Execute_query'];?></a></li>
+                <li><a href="?page=phpinfo" class="B-wave A-Menu-active-phpinfo"><?php echo Lang['Version_php'];?></a></li>
+            <?php  } ?>
+            
+        </ul>
+    </aside>

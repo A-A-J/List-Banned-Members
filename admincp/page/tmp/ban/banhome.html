@@ -1,0 +1,81 @@
+<a href="index.php?page=<?php echo $menupageurl;?>&getpage=add" class="B-wave btn btn-updata"><?php echo Lang['New_ban_members'];?></a>
+<div class="row mt-2 mb-3">
+    <div class="col-lg-12">
+    
+        <!-- البحث عن العضوية -->
+        <form class="m-0 p-1 A-Serach-Normal" action="?page=ban&page_home=1" method="post">
+            <input type="text" class="d-block mb-1" style="font-size:12;" name="search_text"
+                placeholder="<?php echo Lang['must_add_search_ms'];?>" maxlength="55" autocomplete="off">
+            <button type="submit" name="submit_searh" class="B-wave btn btn-updata float-right mb-1"
+                value="submit_searh"><i class="fa fa-save"></i> <?php echo Lang['Search'];?></button>
+        </form>
+        <!-- البحث عن العضوية -->
+
+
+        <div class="A-table">
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><?php echo Lang['Name'];?></th>
+                            <th><?php echo Lang['Side'];?></th>
+                            <th><?php echo Lang['reason'];?></th>
+                            <th><?php echo Lang['The_guide'];?></th>
+                            <th><?php echo Lang['by'];?></th>
+                            <th><?php echo Lang['Date'];?></th>
+                            <th><?php echo Lang['The_Options'];?></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                            foreach($getBanShowSelect as $rows): ?>
+                                <tr>
+                                    <td><?php echo $rows['id'] ?></td>
+                                    <td><?php echo $rows['name'] ?></td>
+                                    <td><?php echo $rows['side'] ?></td>
+                                    <td><?php echo $rows['reason_ban'] ?></td>
+                                    <td>
+                                        <a href="<?php echo $rows['evidence'] ?>"
+                                            onclick="window.open(this.href,'targetWindow', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=SomeSize, height=SomeSize`); return false;"
+                                            class="fa fa-eye"> </a>
+                                    </td>
+                                    <td><?php echo $rows['by'] ?></td>
+                                    <td><?php echo nicetime($rows['data']) ?></td>
+                                    <td>
+                                        <a href="index.php?page=<?php echo $menupageurl;?>&getpage=edit&id=<?php echo $rows['id'];?>"
+                                            class="fa fa-edit" title="<?php echo Lang['Edit'];?>"></a>
+                                        <a href="#" class="fa fa-ban" data-toggle="modal"
+                                            data-target=".bd-example-modal-sm-<?php echo $rows['id'];?>" title="<?php echo Lang['Delete'];?>"></a>
+                                    </td>
+                                </tr>
+
+                                <div class="modal fade bd-example-modal-sm-<?php echo $rows['id'];?>" tabindex="-1"
+                                    role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content A-msgwindows">
+                                            <form action="?page=<?php echo $menupageurl?>&page_home=1" method="post">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    <?php echo Lang['A_y_s_delete_members'] .' '. $rows['name']?> ؟</h5>
+                                                <button type="button" data-dismiss="modal" class="B-wave btn btn-updata"><?php echo Lang['Cancellation_Delete'];?></button>
+                                                <button type="submit" name="submit" class="B-wave btn btn-updata"
+                                                    value="<?php echo $rows['id'];?>"><?php echo Lang['Delete'];?></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- تعداد الصفحات -->
+        <?php 
+             echo $pagination_ban->paginationfull('ban');
+         ?>
+        <!-- تعداد الصفحات -->
+
+        <a href="index.php?page=<?php echo $menupageurl;?>&getpage=add" class="B-wave btn btn-updata mt-3"><?php echo Lang['New_ban_members'];?></a>
+    </div>

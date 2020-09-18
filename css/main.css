@@ -1,0 +1,215 @@
+/* http://www.alexnice.com/Paintings_and_Illustration.html img css(body)*/
+body {
+    background-color: #ffffff;
+    background: url(../img/background.jpg) no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center top;
+    font-family: "Droid Arabic Kufi", "tahoma", sans-serif;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+.transition {
+    -ms-transition: .3s all;
+    -webkit-transition: .3s all;
+    -o-transition: .3s all;
+    transition: .3s all;
+}
+
+.msg {
+    background: #eee;
+    text-align: start;
+    font-size: 0.7rem;
+    padding: 10px 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.error {
+    background: #b61111;
+    color: #fff;
+    font-weight: bold;
+    border: unset;
+}
+
+.success {
+    background: #27b127;
+    color: #fff;
+    font-weight: bold;
+}
+
+/*Start Style Main*/
+#main-body {
+    background-color: #1c1212b8;
+    border-radius: 30px;
+    box-shadow: 1px 4px 23px #000000;
+    max-height: 42.5rem;
+    height: 100%;
+    max-width: 64.375rem;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 30px;
+}
+
+.font-color-title {
+    color: #fff;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 30px;
+    opacity: 0.8;
+}
+
+input[type="text"] {
+    width: 100%;
+    background: #1616169e;
+    border: 1px solid #ffffff1c;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.table {
+    margin: 0;
+    padding: 0;
+}
+
+thead {
+    background: #0007;
+}
+
+td {
+    border-top: unset !important;
+    color: #989898;
+    border-bottom: 1px solid #343434;
+}
+
+tbody tr {
+    font-size: 13px;
+}
+
+tbody tr:hover {
+    background: #55555566
+}
+
+td>a {
+    background: #0e7eff5e;
+    padding: 2px 5px;
+    color: #fff9 !important;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.settingStyle {
+    position: fixed;
+    left: 0;
+    font-size: 25px;
+    color: #fff !important;
+    cursor: pointer;
+    background: #4f2def;
+    padding: 5px;
+    z-index: 1;
+}
+
+.modal-content {
+    background: #131419;
+    box-shadow: 0px 0px 8px 3px #ffffff14;
+    margin: 0 15px;
+    text-align: start;
+}
+
+.modal-header,
+.modal-footer {
+    border: unset;
+    background: #0005;
+    padding: 10px 10px;
+    justify-content: normal !important;
+}
+
+.modal-header>h5 {
+    font-size: 15px;
+    color: #a5a5a5;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-footer>button {
+    font-size: 12px;
+    padding: 5px;
+    background: #ffffff21;
+    border: unset;
+    color: #a5a5a5;
+}
+
+
+.modal-body>ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-body>ul>li {
+    -webkit-flex: auto;
+    -moz-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    -ms-transition: .3s all;
+    -webkit-transition: .3s all;
+    -o-transition: .3s all;
+    transition: .3s all;
+}
+
+
+.modal-body>ul>li:hover {
+    background: #ffffff08;
+}
+
+.modal-body>ul>li>input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0;
+    border-right: 2px solid #a9a9a9;
+    color: #4d6596 !important;
+    font-size: 15px;
+    display: block;
+    background: unset !important;
+    border: unset !important;
+    text-align: start;
+    box-shadow: unset;
+    -ms-transition: .3s all;
+    -webkit-transition: .3s all;
+    -o-transition: .3s all;
+    transition: .3s all;
+}
+
+.modal-body>ul>li>input[type="submit"]:hover {
+    color: #964d4d !important;
+}
+
+
+/*Start Css Media Width Max or Min*/
+
+@media (max-width:920px) {
+    body {
+        background-size: 200% 200%;
+    }
+
+    .table-responsive {
+        width: 235%;
+    }
+
+    .top_ban {
+        width: 100%;
+        display: block;
+        overflow: auto;
+    }
+}

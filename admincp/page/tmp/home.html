@@ -1,0 +1,98 @@
+<aside id="home" class="mr-3 ml-3 mt-3">
+    <h2 class="text-right dashboard-name"><?php echo Lang['Dashboard'];?></h2>
+    <div class="row">
+        <!-- <div class="col-lg-12">
+            <div id="pag">
+                <i class="fa fa-home"></i>
+                <h6><?php echo Lang['Home'];?> <i class="fa fa-angle-left"></i> </h6>
+            </div>
+        </div> -->
+        <div class="col-lg-5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="home-card">
+                        <div class="home-card-header">
+                            <i class="fa fa-users"></i>
+                            <h2><?php $countMembers = getAllTableCount('id', 'members'); echo $countMembers['id'];?></h2>
+                            <small><?php echo Lang['Count_members'];?></small>
+                        </div>
+                        <div class="home-card-footer">
+                            <a href="?page=members"><?php echo Lang['View_member_list'];?></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="home-card">
+                        <div class="home-card-header">
+                            <i class="fa fa-user"></i>
+                            <h2><?php $countban = getAllTableCount('id', 'ban'); echo $countban['id'];?></h2>
+                            <small><?php echo Lang['Count_ban'];?></small>
+                        </div>
+                        <div class="home-card-footer">
+                            <a href="?page=ban"><?php echo Lang['View_ban_list'];?></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="home-card">
+                        <div class="home-card-header">
+                            <i class="fa fa-copyright"></i>
+                            <h2>1.0.1</h2>
+                            <small><?php echo Lang['Version_script'];?></small>
+                        </div>
+                        <div class="home-card-footer">
+                            <a href="?page=version" onclick="window.open(this.href,'targetWindow', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=SomeSize, height=SomeSize`); return false;"><?php echo Lang['View_details_sctip'];?></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="home-card">
+                        <div class="home-card-header">
+                            <i class="fa fa-exclamation-circle"></i>
+                            <h2><?php $datalogin = getAllTableCount('id', 'datalogin','WHERE countError = 1'); echo $datalogin['id'];?></h2>
+                            <small><?php echo Lang['Failed_login_error'];?></small>
+                        </div>
+                        <div class="home-card-footer">
+                        <a href="?page=errorLogin" onclick="window.open(this.href,'targetWindow', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=SomeSize, height=SomeSize`); return false;"><?php echo Lang['View_details'];?></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="home-note">
+                <h2>مذكرة الإدارة</h2>
+                <form class="m-0 p-0" style="position: relative;" action="index.php" method="POST">
+                    <textarea class="w-100" style="resize:none" name="note"><?php echo $getNote['note'];?></textarea>
+                    <button type="submit" name="submit" class="B-wave btn btn-updata" style="position: absolute; left: 2rem; bottom: 1.5rem;"><i class="fa fa-save"></i> حفظ المذكرة</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-lg-12 mt-3">
+            <div class="home-card bb">
+                <h2><?php echo Lang['List_5_ban'];?></h2>
+                <table class="home-card-table">
+                    <tbody>
+                        <?php $i=1; foreach($get_ban_page_home as $get_ban_page_home): ?>
+                            <tr>
+                                <td><?php echo $i++?></td>
+                                <td><?php echo $get_ban_page_home['name'];?></td>
+                                <td><?php echo nicetime($get_ban_page_home['data']);?></td>
+                                <td><?php echo $get_ban_page_home['side'];?></td>
+                                <td><a href="<?php echo $get_ban_page_home['evidence'] ?>" onclick="window.open(this.href,'targetWindow', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=SomeSize, height=SomeSize`); return false;" class="fa fa-eye"> </a></td>
+                                <!-- <td><span><img src="../img/avatar/.code_img."><b>.code_by_username_table_db.</b></span></td> -->
+                                <td><a href="?page=ban&getpage=edit&id=<?php echo $get_ban_page_home['id'];?>" class="fa fa-edit"></a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</aside>

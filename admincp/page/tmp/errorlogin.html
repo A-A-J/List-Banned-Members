@@ -1,0 +1,25 @@
+<div class="col-lg-12 mt-3">
+<h2 class="text-right dashboard-name"><?php echo Lang['Errpr_login_attempts'];?></h2>
+    <div class="home-card bb">
+        <table class="home-card-table">
+            <thead>
+                <tr>
+                    <td><?php echo Lang['Name_input'];?></td>
+                    <td><?php echo Lang['Date'];?></td>
+                    <!-- <td><?php #echo Lang['Location'];?></td> -->
+                    <td><?php echo Lang['IP'];?></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($ErrorLogin as $rows):?>
+                <tr>
+                    <td><?php echo $rows['username'];?></td>
+                    <td><?php echo nicetime($rows['dateLogin']);?></td>
+                    <!-- <td><?php #echo $rows['country'];?></td> -->
+                    <td><?php echo $rows['ip'];?></td>
+                </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</div>

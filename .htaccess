@@ -1,0 +1,55 @@
+RewriteEngine On 
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+Options All -Indexes
+
+# Pretty URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ 404.php [L]
+# End of Rewrite section
+
+# Enable fonts loading from cross-origin recourse
+Header add Access-Control-Allow-Origin "*"
+
+# Disable browsers from being able to validate files, to improve speed
+Header unset ETag
+FileETag None
+# End of Disable browsers from being able to validate files
+
+# Set compression to reduce bandwith
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    # Don't compress images
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+# End of Set compression
+
+# Set browser caching to reduce http requests
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+# End of set browser caching
+
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>

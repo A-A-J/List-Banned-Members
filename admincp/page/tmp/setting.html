@@ -1,0 +1,52 @@
+<aside class="main-card-data">
+    <form action="?page=setting" method="post">
+        <div class="data-panel">
+            <label><?php echo Lang['Web_name'];?></label>
+            <input type="text" name="nWebsit" placeholder="<?php echo Lang['Web_example_name'];?>" maxlength="50" value="<?php echo  $row['nWebsit'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Web_describe'];?></label>
+            <input type="text" name="dWebsit" placeholder="<?php echo Lang['Web_example_describe'];?>" maxlength="255" value="<?php echo  $row['dWebsit'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Web_key'];?></label>
+            <input type="text" name="kWebsit" placeholder="<?php echo Lang['Web_example_key'];?>" maxlength="255" value="<?php echo  $row['kWebsit'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Web_url'];?></label>
+            <input type="url" name="urlWebsit" placeholder="<?php echo Lang['Web_example_url'];?>" maxlength="255" value="<?php echo  $row['urlWebsit'];?>">
+        </div>
+
+        <div class="data-panel">
+            <label><?php echo Lang['Web_status'];?></label>
+            <select name="sWebsit">
+                <?php if($row['sWebsit'] == 1){
+                    echo '<option value="1" >'.Lang['Close'].'</option><option value="0">'.Lang['Open'].'</option> ';
+                }else{
+                    echo '<option value="0" >'.Lang['Open'].'</option><option value="1">'.Lang['Close'].'</option> ';
+                }?>
+            </select>
+        </div>
+        
+        <div class="data-panel">
+            <label><?php echo Lang['Web_msg_close'];?></label>
+            <textarea name="sText" placeholder="<?php echo Lang['Web_example_msg_close'];?>"><?php echo  $row['sText'];?></textarea>
+        </div>
+        
+        <div class="data-panel">
+            <label><?php echo Lang['Web_programmer_rights'];?></label>
+            <select name="copyright">
+                <?php if($row['copyright'] == 1){
+                    echo '<option value="1" >'.Lang['Hide'].'</option><option value="0">'.Lang['Show'].'</option> ';
+                }else{
+                    echo '<option value="0" >'.Lang['Show'].'</option><option value="1">'.Lang['Hide'].'</option> ';
+                }?>
+            </select>
+        </div>
+        
+            <button type="submit" name="submit" class="btn-updata"><i class="fa fa-save"></i> <?php echo Lang['Save']?></button>
+    </form>
+</aside>
