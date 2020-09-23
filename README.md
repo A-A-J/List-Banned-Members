@@ -5,7 +5,7 @@ Yes, the script is open source, but I will not allow you to delete my rights, an
 
 # Program operating requirements:
 * PHP 7.x.x
-* MySQLi
+* PDO
 * Encodes base64
 
 # Add-ons:
